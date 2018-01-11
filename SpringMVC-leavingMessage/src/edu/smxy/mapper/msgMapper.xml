@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.smxy.mapper.MsgMapper">
+	<insert id="insertMsg" parameterType="Msg">
+		insert into msg(msgTitle,msgContent,msgTime,username) values(#{msgTitle},#{msgContent},#{msgTime},#{username});
+	</insert>
+	<select id="selectAll" resultType="Msg">
+		select *from msg
+	</select>
+	<select id="selectMy" resultType="Msg" parameterType="STRING">
+		select *from msg where username=#{username}
+	</select>
+	<select id="selectdetail" resultType="Msg" parameterType="INTEGER">
+		select *from msg where msgId=#{msgId}
+	</select>
+</mapper>

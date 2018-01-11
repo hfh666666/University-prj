@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.smxy.mapper.UserMapper">
+	<select id="selectExist" parameterType="User" resultType="User">
+		select
+		*from user where username=#{username}
+
+	</select>
+
+	<insert id="InsertUser" parameterType="User">
+		insert into
+		user(username,password) values(#{username},#{password})
+	</insert>
+	<update id="Insertimg" parameterType="User">
+		update user set
+		img_path=#{img_path} where username=#{username}
+	</update>
+	<select id="loginCheck" parameterType="User" resultType="User">
+		select
+		*from user where username=#{username} and password=#{password}
+
+	</select>
+</mapper>
